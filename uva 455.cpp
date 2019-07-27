@@ -8,47 +8,24 @@ int main()
     cin >> t;
     string str;
     vector<int> cou;
-    for(int i=0;i<t;i++)
+    for(int i=1;i<=t;i++)
     {
-        cout << endl;
         cin >> str;
-        int c=0;
         int len = str.length();
-        string st = str;
-        for(int i=0;i<len;i++)
+        for(int j=1;j<=len;j++)
         {
-            c = 0;
-            for(int j=0;j<len;j++)
+            string sum ="";
+            string sub = str.substr(0,j);
+            int sublen =sub.length();
+            for(int k=0;k<len/sublen;k++)
+                sum+=sub;
+            if(sum==str)
             {
-                if(str[i]==st[j])
-                {
-                    c++;
-                    st[j] = '1';
-                }
-            }
-            if(c==0)
+                cout << sublen <<endl;
                 break;
-            cou.push_back(c);
-        }
-        int k=0;
-        for(int i=1;i<cou.size();i++)
-        {
-            int xx = cou[0];
-            if(xx == cou[i])
-            {
-                k++;
             }
-
         }
-        if(k==cou.size()-1)
-        {
-             cout <<cou.size() <<endl;
-        }
-        else
-        {
-            cout <<len <<endl;
-        }
-        cou.clear();
-
+        if(i!=t)
+            cout << endl;
     }
 }
